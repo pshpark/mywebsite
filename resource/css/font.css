@@ -1,0 +1,83 @@
+@font-face{
+    font-family: "NanumSquare";
+    src:url("../font/NanumSquareL.otf") format("opentype");
+    font-style:normal;
+    font-weight:300;
+  }
+  @font-face{
+    font-family: "NanumSquare";
+    src:url("../font/NanumSquareR.otf") format("opentype");
+    font-style:normal;
+    font-weight:normal;
+  }
+  @font-face{
+    font-family: "NanumSquare";
+    src:url("../font/NanumSquareB.otf") format("opentype");
+    font-style:normal;
+    font-weight:bold;
+  }
+  @font-face{
+    font-family: "NanumSquare";
+    src:url("../font/NanumSquareEB.otf") format("opentype");
+    font-style:normal;
+    font-weight:800;
+  }
+  @font-face{
+    font-family: "NanumPen";
+    src:url("../font/NanumPen.otf") format("opentype");
+    font-style:normal;
+    font-weight:normal;
+  }
+  @font-face{
+    font-family: "Roxie";
+    src:url("../font/Roxie\ rossa.otf") format("opentype");
+    font-style:normal;
+    font-weight:lighter;
+  }
+  @font-face{
+    font-family: "Roxie";
+    src:url("../font/Roxie\ rossa.otf") format("opentype");
+    font-style:normal;
+    font-weight:normal;
+  }
+  @font-face{
+    font-family: "Roxie";
+    src:url("../font/Roxie\ rossa.otf") format("opentype");
+    font-style:normal;
+    font-weight:bold;
+  }
+  /* SCDream */
+  @font-face {
+    font-family:'SCDream';
+    font-style:normal;
+    font-weight:400;
+    src:local('SCDream4'), local('SCDream4'),
+        url('../font/SCDream4.otf') format('opentype');
+  }
+  @font-face {
+    font-family:'SCDream';
+    font-style:normal;
+    font-weight:300;
+    src:local('SCDream3'), local('SCDream3'),
+        url('../font/SCDream3.otf') format('opentype');
+  }
+  @font-face {
+    font-family:'SCDream';
+    font-style:normal;
+    font-weight:500;
+    src:local('SCDream5'), local('SCDream5'),
+        url('../font/SCDream5.otf') format('opentype');
+  }
+  @font-face {
+    font-family:'SCDream';
+    font-style:normal;
+    font-weight:800;
+    src:local('SCDream7'), local('SCDream7'),
+        url('../font/SCDream7.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'S-CoreDream-5Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
