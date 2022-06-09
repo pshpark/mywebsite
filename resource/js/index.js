@@ -7,6 +7,7 @@ function init() {
     let idx = 0;
     let delta;
     let LIST = "";
+    const indexBody = document.querySelector(".index_body");
     const mainImg = document.querySelector(".photozone");
     const mainTit = document.querySelector(".main_tit01");
     const elMainCon = document.querySelectorAll(".main-page");
@@ -123,54 +124,58 @@ function init() {
     }
 
     if (document.body.contains(mainImg)) {
-        $(window).on('mousewheel DOMMouseScroll', function (e) {
-            delta = e.originalEvent.wheelDelta || e.originalEvent.detail * -1;
-            if (delta < 0) {
-                if (!(num == 11)) {
-                    num++;
-                    if (num <= 10) {
+        if( window.innerWidth > 1024 ){
+            $(window).on('mousewheel DOMMouseScroll', function (e) {
+                delta = e.originalEvent.wheelDelta || e.originalEvent.detail * -1;
+                if (delta < 0) {
+                    if (!(num == 11)) {
+                        num++;
+                        if (num <= 10) {
+                            mainImg.style = `width:${(num * 5) + 50}vw; height:${(num * 5) + 50}vh;`;
+                        }
+                    }
+                    if ((num == 11) && (idx < elMainCon.length)) {
+                        idx++;
+                    }
+                } else {
+                    if (!(idx == 0)) {
+                        idx--;
+                    }
+                    if ((num > 0) && (idx == 0)) {
+                        num--;
                         mainImg.style = `width:${(num * 5) + 50}vw; height:${(num * 5) + 50}vh;`;
                     }
                 }
-                if ((num == 11) && (idx < elMainCon.length)) {
-                    idx++;
+                if (num >= 10) {
+                    mainTit.style = `color:#fff;`;
+                    mainImg.classList.add("on");
+        
+                } else {
+                    mainTit.style = `color:#000;`;
+                    mainImg.classList.remove("on");
                 }
-            } else {
-                if (!(idx == 0)) {
-                    idx--;
+                if (idx >= 1) {
+                    elMainCon1.style = `background:#111;`;
                 }
-                if ((num > 0) && (idx == 0)) {
-                    num--;
-                    mainImg.style = `width:${(num * 5) + 50}vw; height:${(num * 5) + 50}vh;`;
+                if (idx != 1) {
+                    elMainCon1.style = `background:#fff;`;
                 }
-            }
-            if (num >= 10) {
-                mainTit.style = `color:#fff;`;
-                mainImg.classList.add("on");
-    
-            } else {
-                mainTit.style = `color:#000;`;
-                mainImg.classList.remove("on");
-            }
-            if (idx >= 1) {
-                elMainCon1.style = `background:#111;`;
-            }
-            if (idx != 1) {
-                elMainCon1.style = `background:#fff;`;
-            }
-            if (idx == 0 || idx == 1) {
-                elHeaderBar.forEach(item => item.style.background = "#fff");
-                elLogo.style.background = "#fff";
-                elHeaderSpan.forEach(item => item.style.color = "#fff");
-            } else {
-                elHeaderBar.forEach(item => item.style.background = "#141150");
-                elLogo.style.background = "#141150";
-                elHeaderSpan.forEach(item => item.style.color = "#141150");
-            }
-            $('html,body').stop().animate({
-                scrollTop: ($(window).height()) * idx
-            }, 600)
-        })
+                if (idx == 0 || idx == 1) {
+                    elHeaderBar.forEach(item => item.style.background = "#fff");
+                    elLogo.style.background = "#fff";
+                    elHeaderSpan.forEach(item => item.style.color = "#fff");
+                } else {
+                    elHeaderBar.forEach(item => item.style.background = "#141150");
+                    elLogo.style.background = "#141150";
+                    elHeaderSpan.forEach(item => item.style.color = "#141150");
+                }
+                $('html,body').stop().animate({
+                    scrollTop: ($(window).height()) * idx
+                }, 600)
+            }) 
+        } else {
+            indexBody.style.overflow = "visible";
+        }
     }
 
     function logoClickHandler(){
@@ -192,6 +197,13 @@ function init() {
             }
             if (document.body.contains(btnGoTop)) {
                 btnGoTop.classList.toggle("on");
+            }
+            if (document.body.contains(indexBody)) {
+                if( elHeader.classList.contains("active") ){
+                    indexBody.style.overflow = "hidden";
+                } else {
+                    indexBody.style.overflow = "visible";
+                }
             }
         })
     }
