@@ -1,6 +1,27 @@
 {
     "list":[
         {
+            "url":"./work08.html",
+            "img":"./resource/images/img_tntp2e.jpeg",
+            "tit01":"Work Project08",
+            "tit02":"TNT Game Application",
+            "data":"work"
+        },
+        {
+            "url":"./work07.html",
+            "img":"./resource/images/img_tntgame.png",
+            "tit01":"Work Project07",
+            "tit02":"TNT Game 랜딩페이지",
+            "data":"work"
+        },
+        {
+            "url":"./work06.html",
+            "img":"./resource/images/img_tiakorea.png",
+            "tit01":"Work Project06",
+            "tit02":"TIA KOREA 홈페이지",
+            "data":"work"
+        },
+        {
             "url":"./work05.html",
             "img":"./resource/images/imb_gmv.png",
             "tit01":"Work Project05",

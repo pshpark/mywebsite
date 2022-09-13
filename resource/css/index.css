@@ -225,6 +225,9 @@ body { overflow:hidden; font-size: 16px; }
 .btn_site:last-of-type{ background:#fff; color:#000; border:1px solid #999; }
 .btn_disable{ filter:grayscale(); pointer-events:none; color:#fff; }
 
+.work08::after{ background:url("../images/img_tntp2e.png") center no-repeat; background-size:cover; }
+.work07::after{ background:url("../images/img_tntgame.png") center no-repeat; background-size:cover; }
+.work06::after{ background:url("../images/img_work06_thumb.png") center no-repeat; background-size:cover; }
 .work05::after{ background:url("../images/img_work05_thumb.png") center no-repeat; background-size:cover; }
 .work04::after{ background:url("../images/img_work04_thumb.png") center no-repeat; background-size:cover; }
 .work03::after{ background:url("../images/img_work05_thumb.png") center no-repeat; background-size:cover; }
