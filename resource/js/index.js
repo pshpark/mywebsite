@@ -64,7 +64,7 @@ function init() {
             data.list.forEach(function(item){
                 LIST += `
                     <li data-list="${item.data}">
-                        <a href="${item.url}" target="_self" title="${item.tit02}">
+                        <a rel="noopener noreferrer" href="${item.url}" target="_self" title="${item.tit02}">
                             <img src="${item.img}" alt="${item.tit02}">
                             <div class="desc_wrap">
                                 <p>${item.tit01}</p>
