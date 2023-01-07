@@ -79,26 +79,22 @@ function init() {
             // list tab click event
             const btnListTab = document.querySelectorAll(".tab_wrap button");
             const workList = document.querySelectorAll(".work_list ul li");
-            btnListTab.forEach(function(item,key){
-                item.addEventListener("click",function(){
-                    btnListTab.forEach(function(listAll){
+            btnListTab.forEach((item,key) => {
+                item.addEventListener("click", () => {
+                    btnListTab.forEach( listAll => {
                         listAll.classList.remove("on");
                     })
                     this.classList.add("on");
-                    workList.forEach(function(list){
+                    workList.forEach( list => {
                         switch(key){
                             case 0: list.classList.remove("hide"); break;
                             case 1:
                                 list.classList.remove("hide");
-                                if( list.dataset.list == "etc" ){
-                                    list.classList.add("hide");
-                                }
+                                list.dataset.list == "etc" && list.classList.add("hide");
                                 break;
                             case 2:
                                 list.classList.remove("hide");
-                                if( list.dataset.list == "work" ){
-                                    list.classList.add("hide");
-                                }
+                                list.dataset.list == "work" && list.classList.add("hide");
                                 break;
                         }
                     })
@@ -108,39 +104,32 @@ function init() {
     }
 
     if (document.body.contains(descWrap)) {
-        window.addEventListener("scroll",function(){
-            if( descWrap.getBoundingClientRect().top <= 50 ){
-                elHeader.classList.add("on");
-            } else {
-                elHeader.classList.remove("on");
-            }
-            if( projectPageVisual.getBoundingClientRect().top <= 100 ){
-                projectPageVisual.classList.add("on");
-            }
-            if( projectPageVisual.getBoundingClientRect().top >= 0 ) {
-                projectPageVisual.classList.remove("on");
-            }
+        window.addEventListener("scroll",() => {
+            descWrap.getBoundingClientRect().top <= 50
+            ? elHeader.classList.add("on")
+            : elHeader.classList.remove("on");
+            projectPageVisual.getBoundingClientRect().top <= 100
+            && projectPageVisual.classList.add("on");
+            projectPageVisual.getBoundingClientRect().top >= 0
+            && projectPageVisual.classList.remove("on");
         })
     }
 
     if (document.body.contains(mainImg)) {
         if( window.innerWidth > 1024 ){
-            $(window).on('mousewheel DOMMouseScroll', function (e) {
+            $(window).on('mousewheel DOMMouseScroll', (e) => {
                 delta = e.originalEvent.wheelDelta || e.originalEvent.detail * -1;
                 if (delta < 0) {
                     if (!(num == 11)) {
                         num++;
-                        if (num <= 10) {
-                            mainImg.style = `width:${(num * 5) + 50}vw; height:${(num * 5) + 50}vh;`;
-                        }
+                        num <= 10 &&
+                        (mainImg.style = `width:${(num * 5) + 50}vw; height:${(num * 5) + 50}vh;`);
                     }
                     if ((num == 11) && (idx < elMainCon.length)) {
                         idx++;
                     }
                 } else {
-                    if (!(idx == 0)) {
-                        idx--;
-                    }
+                    !(idx == 0) && idx--;
                     if ((num > 0) && (idx == 0)) {
                         num--;
                         mainImg.style = `width:${(num * 5) + 50}vw; height:${(num * 5) + 50}vh;`;
@@ -154,12 +143,8 @@ function init() {
                     mainTit.style = `color:#000;`;
                     mainImg.classList.remove("on");
                 }
-                if (idx >= 1) {
-                    elMainCon1.style = `background:#111;`;
-                }
-                if (idx != 1) {
-                    elMainCon1.style = `background:#fff;`;
-                }
+                idx >= 1 && (elMainCon1.style = `background:#111;`);
+                idx != 1 && (elMainCon1.style = `background:#fff;`);
                 if (idx == 0 || idx == 1) {
                     elHeaderBar.forEach(item => item.style.background = "#fff");
                     elLogo.style.background = "#fff";
@@ -169,9 +154,7 @@ function init() {
                     elLogo.style.background = "#141150";
                     elHeaderSpan.forEach(item => item.style.color = "#141150");
                 }
-                $('html,body').stop().animate({
-                    scrollTop: ($(window).height()) * idx
-                }, 600)
+                $('html,body').stop().animate({ scrollTop: ($(window).height()) * idx }, 600)
             }) 
         } else {
             indexBody.style.overflow = "visible";
@@ -184,27 +167,25 @@ function init() {
         const workWrap = document.querySelector(".bd_work_wrap");
         const projectWrap = document.querySelector(".bg_project_wrap");
 
-        elLogo.addEventListener("click", function () {
+        elLogo.addEventListener("click", () => {
             $('html, body').animate({ scrollTop: '0' }, 300);
         })
-        btnMenu.addEventListener("click",function(){
+        btnMenu.addEventListener("click",() => {
             elHeader.classList.toggle("active");
-            if (document.body.contains(workWrap)) {
-                workWrap.classList.toggle("on");
-            }
-            if (document.body.contains(projectWrap)) {
-                projectWrap.classList.toggle("on");
-            }
-            if (document.body.contains(btnGoTop)) {
-                btnGoTop.classList.toggle("on");
-            }
-            if (document.body.contains(indexBody)) {
-                if( elHeader.classList.contains("active") ){
-                    indexBody.style.overflow = "hidden";
-                } else {
-                    indexBody.style.overflow = "visible";
-                }
-            }
+
+            document.body.contains(workWrap)
+            && workWrap.classList.toggle("on");
+
+            document.body.contains(projectWrap)
+            && projectWrap.classList.toggle("on");
+
+            document.body.contains(btnGoTop)
+            && btnGoTop.classList.toggle("on");
+            
+            document.body.contains(indexBody) &&
+                elHeader.classList.contains("active")
+                ? (indexBody.style.overflow = "hidden")
+                : (indexBody.style.overflow = "visible");
         })
     }
 
@@ -246,35 +227,21 @@ function init() {
 
     // page loading effect
     // loadPage.classList.add("hide");
-    setTimeout(() => {
-        loadPage.classList.add("hide");
-    },1000);
+    setTimeout(() => { loadPage.classList.add("hide"); },1000);
 
     if (document.body.contains(btnGoTop)) {
-        $(window).scroll(function () {
+        $(window).scroll(() => {
             const scrollTop = $(window).scrollTop();
     
             // wide_imgBox scroll animation
-            if( scrollTop > 5) {
-                $('.btn_goTop').css({
-                    right: 20,
-                    opacity: 1,
-                }, 100);
-            } else {
-                $('.btn_goTop').css({
-                    right: -50,
-                    opacity: 0,
-                }, 100);
-            }
+            scrollTop > 5
+            ? $('.btn_goTop').css({ right: 20, opacity: 1 }, 100)
+            : $('.btn_goTop').css({ right: -50, opacity: 0 }, 100);
         });
-        $('.btn_goTop').click(function(){
+        $('.btn_goTop').click(() => {
             $('html, body').animate({scrollTop: '0'}, 300);
         })
     }
 }
-window.addEventListener("load",function(){
-    init();
-})
-window.addEventListener("resize",function(){
-    deviceCheck();
-});
+window.addEventListener("load",function(){ init(); })
+window.addEventListener("resize",function(){ deviceCheck(); });
